@@ -1,23 +1,26 @@
-(function(){
-	'use strict';
+(function () {
+  'use strict';
 
-	angular
-		.module('app.directives')
-		.directive('confirmXBtn', confirmXBtn);
+  angular
+    .module('app.directives')
+    .directive('confirmXBtn', confirmXBtn);
 
-	function confirmXBtn() {
-	  var directive = {
-	    link: link,
-	    templateUrl: '/js/directives/confirm-x/confirm-x.html',
-	    scope:{
-	    	clickFunc: '&'
-	    },
-	  };
+  confirmXBtn.$inject = ['MODULE_PATH'];
 
-	  return directive;
+  function confirmXBtn(MODULE_PATH) {
+    var directive = {
+      link: link,
+      templateUrl: MODULE_PATH + '/confirm-x/confirm-x.html',
+      scope: {
+        clickFunc: '&'
+      },
+    };
 
-	  function link(scope, el, attrs) {
-    	scope.confirmed = false;
-    }	
-	}
+    return directive;
+
+    function link(scope, el, attrs) {
+      scope.confirmed = false;
+    }
+  }
 })();
+
